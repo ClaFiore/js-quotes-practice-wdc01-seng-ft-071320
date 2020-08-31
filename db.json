@@ -53,7 +53,12 @@
     {
       "id": 11,
       "quote": "The here and now is all we have, and if we play it right it's all we'll need.",
-      "author": "Ann Richards"
+      "author": "Ann Richardson"
+    },
+    {
+      "quote": "You Only Live Once",
+      "author": "Flatiron",
+      "id": 12
     }
   ],
   "likes": [
@@ -63,9 +68,13 @@
       "createdAt": 1558524356
     },
     {
-      "quoteId": 10,
+      "quoteId": 2,
       "id": 2,
       "createdAt": 1558524358
+    },
+    {
+      "quoteId": 1,
+      "id": 3
     }
   ]
 }
