@@ -12,6 +12,8 @@ const toggleBtn = document.createElement('button')
 toggle ? toggleBtn.innerText = "SORT ON" : toggleBtn.innerText = "SORT OFF"
 div.prepend(toggleBtn)
 
+const body = document.querySelector('body')
+
 fetchAllQuotes()
 
 toggleBtn.addEventListener('click', () => {
