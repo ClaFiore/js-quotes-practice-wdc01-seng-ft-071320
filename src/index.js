@@ -4,11 +4,34 @@ const quoteList = document.getElementById('quote-list')
 const createQuoteForm = document.getElementById('new-quote-form')
 const likesUrl = 'http://localhost:3000/likes'
 const likesQuoteIdUrl = 'http://localhost:3000/likes?quoteId='
-let likesCount = 0
 
-fetch(url)
-.then(res => res.json())
-.then(quotesArray => queryArray(quotesArray))
+const div = document.querySelector('div')
+
+let toggle = false
+const toggleBtn = document.createElement('button')
+toggle ? toggleBtn.innerText = "SORT ON" : toggleBtn.innerText = "SORT OFF"
+div.prepend(toggleBtn)
+
+fetchAllQuotes()
+
+toggleBtn.addEventListener('click', () => {
+    toggle = !toggle
+    toggle ? toggleBtn.innerText = "SORT ON" : toggleBtn.innerText = "SORT OFF"
+    fetchAllQuotes()
+})
+
+function fetchAllQuotes(){
+    if (toggle == false){
+        fetch(url)
+        .then(res => res.json())
+        .then(quotesArray => queryArray(quotesArray))
+    }
+    else {
+        fetch('http://localhost:3000/quotes?_sort=author')  
+        .then(res => res.json())
+        .then(quotesArray => queryArray(quotesArray))
+    }
+}
 
 function queryArray(quotesArray){
     quotesArray.forEach(quote => displayQuote(quote))
@@ -154,3 +177,4 @@ function getLikesAmount(quote, likeSpan){
         likeSpan.innerText = likesCount
     })
 }
+
