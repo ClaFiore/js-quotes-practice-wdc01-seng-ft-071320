@@ -36,6 +36,7 @@ function fetchAllQuotes(){
 }
 
 function queryArray(quotesArray){
+    quoteList.innerHTML = ""
     quotesArray.forEach(quote => displayQuote(quote))
 }
 
